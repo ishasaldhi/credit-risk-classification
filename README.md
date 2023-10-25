@@ -3,6 +3,7 @@
 The purpose of this analysis is to train and evaluate a model based on loan risk. I used a dataset of historical lending activity from a lending services company to build a model which can determine the creditworthiness of loan borrowers. The model is supposed to predict the loan_status of borrowers to determine if they giving them a loan would be a healthy loan, `0`, or a high-risk loan, `1`. 
 
 `y.value_counts() : `
+
 `0:    75036`
 
 `1:     2500`
