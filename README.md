@@ -1,41 +1,29 @@
 # credit-risk-classification
-
-Write a brief report that includes a summary and analysis of the performance of the machine learning models that you used in this homework. You should write this report as the README.md file included in your GitHub repository.
-
-Structure your report by using the report template that Starter_Code.zip includes, ensuring that it contains the following:
-
-An overview of the analysis: Explain the purpose of this analysis.
-
-The results: Using a bulleted list, describe the accuracy score, the precision score, and recall score of the machine learning model.
-
-A summary: Summarize the results from the machine learning model. Include your justification for recommending the model for use by the company. If you don’t recommend the model, justify your reasoning.
-
 ## Overview of the Analysis
+The purpose of this analysis is to train and evaluate a model based on loan risk. I used a dataset of historical lending activity from a lending services company to build a model which can determine the creditworthiness of loan borrowers. The model is supposed to predict the loan_status of borrowers to determine if they giving them a loan would be a healthy loan, `0`, or a high-risk loan, `1`. 
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+y.value_counts() : 
+0    75036
+1     2500
+Name: loan_status, dtype: int64
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+### Stages of Machine Learning Process
+1. Split the Data:
+   * First, I split the dataset into training and testing sets to evaluate the performance of the model.
+2. Train the Model:
+   * I initialized the Logistic Regression Model with the dataset to predict the classification as high risk or low risk.
+   * Then, I used the training data in order to fit the model to the data
+3. Confusion Matrix and Clasification report
+   * In order to evaluate the performance of the model, I generated a confusion matrix
+   * Then, I made a classification report in order to show how well the model performed.
+
+The main method used was the Logistic Regression Model which was trained with the dataset to assess and classify loan risk status. 
 
 ## Results
-
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
-
 * Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
-
-
-
-* Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
+  * For Healthy Loans, `0`, the Logistic Regression Model has a precision of 100%. This indicates that all of the predictions for healthy loans were correct. For High-risk loans, `1`, the precision is 87% which shows that less predictions for high-risk loans were correct.
+  * The recall for Healthy loans was also 100% while the recall for High-risk loans was 89%. Recall indicates when this label was correctly identified; so this model predicts recall better for Healthy loans than High-risk loans.
+  * The model accuracy was 0.99, showing that the model was correctly loaning loan risk 99% of the time. 
 
 ## Summary
-
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+The Logistic Regression model performed well with an overall accuracy of 99%. Additionally, the model was perfectly predicting the healthy loans. The model is predicting the healthy loans as healthy loans every time, but is sometimes predicting high-risk loans as healthy loans. It is important to identify the healthy loans so lenders know when a borrower is safe to lend to. It would be helpful to improve the model in order to increase the precision and recall for high-risk loans in order to ensure that lenders aren't giving loans to borrowers with high-risk. 
